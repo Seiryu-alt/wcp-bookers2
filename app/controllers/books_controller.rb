@@ -8,10 +8,16 @@ class BooksController < ApplicationController
   end
 
   def create
-    
- 
+    book = current_user.books.new(post_book_params)
+    book.save
+    redirect_to book_path(book)
   end
 
   def edit
+  end
+
+  private
+  def post_book_params
+    params.require(:book).permit(:title, :body)
   end
 end
