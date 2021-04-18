@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "layouts/left_sidebar", book: @new_book, user: @user %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <%= render "layouts/books_table", books: @user.books %>
+    </div>
+  </div>
+</div>
