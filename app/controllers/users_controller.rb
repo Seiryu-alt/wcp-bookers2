@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    unless @user == current_user 
+      flash[:alert] = "Access denied"
+      redirect_back fallback_location: books_path
+    end
   end
 
   def update
