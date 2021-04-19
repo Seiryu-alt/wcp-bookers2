@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     unless @user == current_user 
       flash[:alert] = "Access denied"
-      redirect_back fallback_location: books_path
+      redirect_back fallback_location: user_path(current_user)
     end
   end
 
