@@ -11,6 +11,10 @@ class BooksController < ApplicationController
   
   def edit
     @book = Book.find(params[:id])
+    unless current_user == @book.user
+      flash[:alert] = "Access denied"
+      redirect_back fallback_location: books_path
+    end
   end
 
   def create
