@@ -3,9 +3,7 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		<h1>Editing Book</h1>
       <%= form_with model:@book, local: true do |f| %>
-        <% if @book.errors.any? %>
-          <%= render "layouts/form_error", model: @book %>
-        <% end %>
+        <%= render "layouts/form_error", model: @book %>
 
         <div class="form-group">
           <%= f.label :title %>
